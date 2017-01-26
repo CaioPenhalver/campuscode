@@ -13,16 +13,16 @@ feature 'User posts recipe' do
 
     visit new_recipe_path
 
-    fill_in 'Name', with: recipe.name
-    fill_in 'Food type', with: recipe.food_type
-    fill_in 'Cuisine', with: recipe.cuisine
-    fill_in 'People', with: recipe.people
-    fill_in 'Time', with: recipe.time
-    fill_in 'Difficulty', with: recipe.difficulty
-    fill_in 'Ingredients', with: recipe.ingredients
-    fill_in 'Procedure', with: recipe.procedure
+    fill_in 'Nome', with: recipe.name
+    fill_in 'Tipo', with: recipe.food_type
+    fill_in 'Cozinha', with: recipe.cuisine
+    fill_in 'Pessoas por porção', with: recipe.people
+    fill_in 'Tempo de preparo', with: recipe.time
+    fill_in 'Dificuldade', with: recipe.difficulty
+    fill_in 'Ingredientes', with: recipe.ingredients
+    fill_in 'Modo de preparo', with: recipe.procedure
 
-    click_on 'Create Recipe'
+    click_on 'Criar receita'
 
     expect(page).to have_content recipe.name
     expect(page).to have_content recipe.food_type
