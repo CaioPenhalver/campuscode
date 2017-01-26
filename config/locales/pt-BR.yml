@@ -17,6 +17,10 @@ pt-BR:
         people: Pessoas por porção
         time: Tempo de preparo
         difficulty: Dificuldade
+        difficulties:
+          easy: Facíl
+          medium: Média
+          hard: Difícil
         ingredients: Ingredientes
         procedure: Modo de preparo
   date:

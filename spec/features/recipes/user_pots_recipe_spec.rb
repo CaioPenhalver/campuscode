@@ -18,7 +18,7 @@ feature 'User posts recipe' do
     fill_in 'Cozinha', with: recipe.cuisine
     fill_in 'Pessoas por porção', with: recipe.people
     fill_in 'Tempo de preparo', with: recipe.time
-    fill_in 'Dificuldade', with: recipe.difficulty
+    select recipe.difficulty, from: 'Dificuldade'
     fill_in 'Ingredientes', with: recipe.ingredients
     fill_in 'Modo de preparo', with: recipe.procedure
 
