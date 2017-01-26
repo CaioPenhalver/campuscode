@@ -1,0 +1,19 @@
+<%= form_for(@recipe) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :food_type %>
+<%= f.text_field :food_type %>
+<%= f.label :cuisine %>
+<%= f.text_field :cuisine %>
+<%= f.label :people %>
+<%= f.text_field :people %>
+<%= f.label :time %>
+<%= f.text_field :time %>
+<%= f.label :difficulty %>
+<%= f.text_field :difficulty %>
+<%= f.label :ingredients %>
+<%= f.text_area :ingredients %>
+<%= f.label :procedure %>
+<%= f.text_area :procedure %>
+<%= f.submit %>
+<% end %>
