@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  def new
+  def login_admin
   end
 
   def admin_authentication
