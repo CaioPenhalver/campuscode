@@ -1,0 +1,21 @@
+/***Recipe cards****/
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: spece-around;
+}
+
+.flex-item {
+  padding: 8px;
+  width: 300px;
+  min-height: 350px;
+}
+
+.message-container {
+
+}
+
+.navbar-container {
+  height: 90px;
+}

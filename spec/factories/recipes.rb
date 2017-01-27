@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :recipe do
     name "Pão de queijo"
-    food_type "sobremesa"
+    food_type "lanche"
     cuisine 'mineira'
     people 3
     time 20
