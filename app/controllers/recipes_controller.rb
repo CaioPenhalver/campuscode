@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_param)
 
     if @recipe.save
-      flash.now[:success] = "Receita #{@recipe.name} foi postada!"
+      flash[:success] = "Receita #{@recipe.name} foi postada!"
       redirect_to @recipe
     elsif @recipe.invalid?
       flash.now[:danger] = "Ocorreu um erro!"
