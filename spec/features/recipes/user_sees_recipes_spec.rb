@@ -1,17 +1,10 @@
 require 'rails_helper'
 
-feature 'User sees recipe' do
+feature 'User sees recipes' do
   scenario 'successfully' do
-    recipe = Recipe.create(name: "Pão de queijo",
-                          food_type: "sobremesa",
-                          cuisine: 'mineira',
-                          people: 3,
-                          time: 20,
-                          difficulty: 'easy',
-                          ingredients: 'Ovo, leite, povilho',
-                          procedure: 'Mecher tudo')
+    recipe = create(:recipe)
     difficulty = 'Facíl'
-    visit recipe_path(recipe)
+    visit root_path
     expect(page).to have_content recipe.name
     expect(page).to have_content recipe.food_type
     expect(page).to have_content recipe.cuisine

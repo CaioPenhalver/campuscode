@@ -2,13 +2,7 @@ require 'rails_helper'
 
 feature 'User posts recipe' do
   scenario 'successfully' do
-    recipe = Recipe.new(name: "Pão de queijo",
-                          food_type: "sobremesa",
-                          cuisine: 'mineira',
-                          people: 3,
-                          time: 20,
-                          ingredients: 'Ovo, leite, povilho',
-                          procedure: 'Mecher tudo')
+    recipe = create(:recipe)
     difficulty = 'Facíl'
     visit new_recipe_path
 
