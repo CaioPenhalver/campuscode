@@ -9,6 +9,7 @@ pt-BR:
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
     models:
       recipe: receita
+      cuisine: cozinha
     attributes:
       recipe:
         name: Nome
@@ -23,6 +24,8 @@ pt-BR:
           hard: Difícil
         ingredients: Ingredientes
         procedure: Modo de preparo
+      cuisine:
+        name: Cozinha
   date:
     abbr_day_names:
     - Dom
