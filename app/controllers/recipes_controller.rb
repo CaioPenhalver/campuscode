@@ -33,6 +33,7 @@ class RecipesController < ApplicationController
                                   :time,
                                   :difficulty,
                                   :ingredients,
-                                  :procedure)
+                                  :procedure,
+                                  :image)
   end
 end

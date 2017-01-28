@@ -57,3 +57,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bootstrap-sass'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'carrierwave_direct'

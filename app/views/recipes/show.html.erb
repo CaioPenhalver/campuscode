@@ -3,6 +3,9 @@
     <div class="">
       <h2><%= @recipe.name %></h2>
       <div class="">
+        <%= image_tag @recipe.image.thumb.url %>
+      </div>
+      <div class="">
         <h4>Tipo</h4>
         <p><%= @recipe.food_type %></p>
       </div>

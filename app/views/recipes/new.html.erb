@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
-    <%= form_for(@recipe) do |f| %>
+    <%= form_for @recipe, html: { multipart: true } do |f| %>
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
@@ -32,6 +32,10 @@
     <div class="form-group">
       <%= f.label :procedure %>
       <%= f.text_area :procedure, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
     </div>
     <%= f.submit class: 'btn btn-primary' %>
     <% end %>
