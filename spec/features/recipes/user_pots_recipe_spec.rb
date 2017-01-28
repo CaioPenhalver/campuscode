@@ -2,10 +2,10 @@ require 'rails_helper'
 
 feature 'User posts recipe' do
   scenario 'successfully' do
-    recipe = create(:recipe)
+    recipe = build(:recipe)
     difficulty = 'Facíl'
     visit new_recipe_path
-    attach_file 'Image', File.join(Rails.root, 'spec', 'img', 'img_test.jpg')
+    attach_file 'Imagem', File.join(Rails.root, 'spec', 'support', 'img', 'img_test.jpg')
     fill_in 'Nome', with: recipe.name
     fill_in 'Tipo', with: recipe.food_type
     fill_in 'Cozinha', with: recipe.cuisine
@@ -17,7 +17,6 @@ feature 'User posts recipe' do
 
     click_on 'Criar receita'
     recipe_db = Recipe.find_by(name: recipe.name)
-    puts " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  #{recipe_db.image.thumb.url} <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
     expect(page).to have_content recipe.name
     expect(page).to have_content recipe.food_type
     expect(page).to have_content recipe.cuisine

@@ -24,6 +24,7 @@ pt-BR:
           hard: Difícil
         ingredients: Ingredientes
         procedure: Modo de preparo
+        image: Imagem
       cuisine:
         name: Cozinha
   date:
