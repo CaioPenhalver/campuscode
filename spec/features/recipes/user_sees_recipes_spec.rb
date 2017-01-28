@@ -5,8 +5,6 @@ feature 'User sees recipes' do
     recipe = create(:recipe)
     other_recipe = create(:recipe,
                           name: "Torta de morango",
-                          food_type: "sobremesa",
-                          cuisine: 'francesa',
                           people: 5,
                           time: 45,
                           difficulty: 'medium',
@@ -18,8 +16,8 @@ feature 'User sees recipes' do
     visit root_path
 
     expect(page).to have_content recipe.name
-    expect(page).to have_content recipe.food_type
-    expect(page).to have_content recipe.cuisine
+    expect(page).to have_content recipe.food_type.name
+    expect(page).to have_content recipe.cuisine.name
     expect(page).to have_content recipe.people
     expect(page).to have_content recipe.time
     expect(page).to have_content difficulty
@@ -27,8 +25,8 @@ feature 'User sees recipes' do
     expect(page).to have_content recipe.procedure
 
     expect(page).to have_content other_recipe.name
-    expect(page).to have_content other_recipe.food_type
-    expect(page).to have_content other_recipe.cuisine
+    expect(page).to have_content other_recipe.food_type.name
+    expect(page).to have_content other_recipe.cuisine.name
     expect(page).to have_content other_recipe.people
     expect(page).to have_content other_recipe.time
     expect(page).to have_content other_difficulty

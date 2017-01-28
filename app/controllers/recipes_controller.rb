@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    load_cuisine_and_food_type
   end
 
   def show
@@ -27,13 +28,18 @@ class RecipesController < ApplicationController
 
   def recipe_param
     params.require(:recipe).permit(:name,
-                                  :food_type,
-                                  :cuisine,
+                                  :food_type_id,
+                                  :cuisine_id,
                                   :people,
                                   :time,
                                   :difficulty,
                                   :ingredients,
                                   :procedure,
                                   :image)
+  end
+
+  def load_cuisine_and_food_type
+    @food_types = FoodType.all
+    @cuisines = Cuisine.all
   end
 end

@@ -7,8 +7,10 @@ feature 'User posts recipe' do
     visit new_recipe_path
     attach_file 'Imagem', File.join(Rails.root, 'spec', 'support', 'img', 'img_test.jpg')
     fill_in 'Nome', with: recipe.name
-    fill_in 'Tipo', with: recipe.food_type
-    fill_in 'Cozinha', with: recipe.cuisine
+    select recipe.food_type.name, from: 'Tipo'
+    select recipe.cuisine.name, from: 'Cozinha'
+    #fill_in 'Tipo', with: recipe.food_type
+    #fill_in 'Cozinha', with: recipe.cuisine
     fill_in 'Pessoas por porção', with: recipe.people
     fill_in 'Tempo de preparo', with: recipe.time
     select difficulty, from: 'Dificuldade'
@@ -18,8 +20,8 @@ feature 'User posts recipe' do
     click_on 'Criar receita'
     recipe_db = Recipe.find_by(name: recipe.name)
     expect(page).to have_content recipe.name
-    expect(page).to have_content recipe.food_type
-    expect(page).to have_content recipe.cuisine
+    expect(page).to have_content recipe.food_type.name
+    expect(page).to have_content recipe.cuisine.name
     expect(page).to have_content recipe.people
     expect(page).to have_content recipe.time
     expect(page).to have_content difficulty

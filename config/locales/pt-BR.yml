@@ -15,7 +15,9 @@ pt-BR:
       recipe:
         name: Nome
         food_type: Tipo
+        food_type_id: Tipo
         cuisine: Cozinha
+        cuisine_id: Cozinha
         people: Pessoas por porção
         time: Tempo de preparo
         difficulty: Dificuldade

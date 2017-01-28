@@ -3,4 +3,6 @@ class Recipe < ApplicationRecord
   validates :name, presence: true, length: { maximum: 30 }
   validates :ingredients, :procedure, presence:true
   mount_uploader :image, ImageUploader
+  belongs_to :food_type
+  belongs_to :cuisine
 end
