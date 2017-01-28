@@ -24,6 +24,11 @@ class RecipesController < ApplicationController
     end
   end
 
+  def filter
+    @recipes = Recipe.where(cuisine_id: params[:cuisine]).order(:created_at).first(20)
+    render 'welcome/index'
+  end
+
   private
 
   def recipe_param

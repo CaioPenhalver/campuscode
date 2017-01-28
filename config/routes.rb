@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#authentication', as: 'authentication'
   get 'login', to: 'sessions#login_admin', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logoutsafsdf'
+  get 'filter', to: 'recipes#filter'
 end

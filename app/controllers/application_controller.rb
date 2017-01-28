@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
-  #helper_method
+  helper_method :cuisine_list
+
+  def cuisine_list
+    Cuisine.all
+  end
+
 private
 
   def current_user(user)
