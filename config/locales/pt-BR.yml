@@ -10,6 +10,7 @@ pt-BR:
     models:
       recipe: receita
       cuisine: cozinha
+      food_type: tipo
     attributes:
       recipe:
         name: Nome
@@ -27,6 +28,8 @@ pt-BR:
         image: Imagem
       cuisine:
         name: Cozinha
+      food_type:
+        name: Tipo de refeição
   date:
     abbr_day_names:
     - Dom
