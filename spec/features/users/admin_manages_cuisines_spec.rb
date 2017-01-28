@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'Admin user' do
   scenario 'registers new cuisine successfully' do
+    admin_user_is_loggedin
+
     cuisine = Cuisine.new(name: 'Brasileira')
 
     visit new_cuisine_path
@@ -12,6 +14,8 @@ feature 'Admin user' do
   end
 
   scenario 'updates cuisine successfully' do
+    admin_user_is_loggedin
+
     cuisine = Cuisine.create(name: 'Brasileira')
     other_cuisine = Cuisine.new(name: 'Espanhola')
 
@@ -23,6 +27,8 @@ feature 'Admin user' do
   end
 
   scenario 'deletes cuisine successfully' do
+    admin_user_is_loggedin
+
     cuisine = Cuisine.create(name: 'Brasileira')
 
     visit cuisine_path(cuisine)
