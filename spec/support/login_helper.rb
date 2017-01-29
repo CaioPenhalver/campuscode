@@ -1,5 +1,5 @@
 module LoginHelper
-  def admin_does_login(password, email)
+  def login(password, email)
     visit login_path
     fill_in 'Email', with: email
     fill_in 'Senha', with: password
@@ -10,6 +10,10 @@ module LoginHelper
                               email: 'caio@gmail.com',
                               password: 'qwoiruwieur',
                               password_confirmation: 'qwoiruwieur')
-    admin_does_login(admin_user.password, admin_user.email)
+    login(admin_user.password, admin_user.email)
+  end
+  def user_is_loggedin
+    user = create(:user)
+    login(user.password, user.email)
   end
 end

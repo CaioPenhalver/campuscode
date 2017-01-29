@@ -5,6 +5,7 @@ class Recipe < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :food_type
   belongs_to :cuisine
+  belongs_to :user
 
   def self.recipes_by(type: type, cuisine: cuisine)
     if !(type.nil? || type.empty?) && !(cuisine.nil? || cuisine.empty?)

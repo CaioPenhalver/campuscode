@@ -33,6 +33,7 @@
         <h4>Modo de preparo</h4>
         <p><%= @recipe.procedure %></p>
       </div>
+      <%= link_to 'Excluir receita', recipe_path(@recipe), method: :delete, style: 'float:right;'%>
     </div>
   </div>
 </div>

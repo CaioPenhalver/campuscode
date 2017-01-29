@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <%= form_for @recipe, html: { multipart: true } do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :food_type_id %>
+      <%= f.collection_select :food_type_id, @food_types, :id, :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :cuisine_id %>
+      <%= f.collection_select :cuisine_id, @cuisines, :id, :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :people %>
+      <%= f.text_field :people, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :time %>
+      <%= f.text_field :time, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :difficulty %>
+      <%= f.select :difficulty, enum_select_i18n(Recipe, :difficulty, has_value:false), html_options: {class: 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :ingredients %>
+      <%= f.text_area :ingredients, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :procedure %>
+      <%= f.text_area :procedure, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+    <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

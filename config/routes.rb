@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :recipes, only: [:show, :new, :create]
+  resources :recipes, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :cuisines, only: [:show, :new, :create, :edit, :update, :destroy, :index]
   resources :food_types, only: [:show, :new, :create, :edit, :update, :destroy, :index]
   resources :ordinaries, only: [:new, :create, :show, :edit, :update, :destroy]

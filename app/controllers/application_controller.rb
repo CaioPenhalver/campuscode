@@ -28,7 +28,7 @@ private
   end
 
   def authenticate_user!
-    if current_user(Ordinary)
+    if current_user(User)
       @current_user
     else
       redirect_to login_path
