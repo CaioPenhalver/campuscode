@@ -4,14 +4,14 @@ class SessionsController < ApplicationController
   end
 
   def authentication
-    admin_user = Admin.find_by(email: login_params[:email])
-    if admin_user && admin_user.authenticate(login_params[:password])
-      session[:user_id] = admin_user.id
+    user = User.find_by(email: login_params[:email])
+    if user && user.authenticate(login_params[:password])
+      session[:user_id] = user.id
       flash[:success] = 'Bem vindo!!!'
       redirect_to root_path
     else
       flash.now[:danger] = 'Email ou senha incorreto!'
-      render :new
+      render :new ###########??????
     end
   end
 

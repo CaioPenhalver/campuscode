@@ -24,6 +24,11 @@ private
   end
 
   def authenticate_user!
+    if current_user(Ordinary)
+      @current_user
+    else
+      redirect_to login_path
+    end
   end
 
   def default_url_options
