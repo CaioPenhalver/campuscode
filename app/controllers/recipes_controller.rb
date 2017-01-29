@@ -30,7 +30,6 @@ class RecipesController < ApplicationController
   end
 
   def search
-
     @recipes = Recipe.where('name LIKE ?', "%#{params[:search]}%").all
     params[:search] = ''
     render 'welcome/index'

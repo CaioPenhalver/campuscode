@@ -11,6 +11,7 @@ pt-BR:
       recipe: receita
       cuisine: cozinha
       food_type: tipo
+      user: usuário
     attributes:
       recipe:
         name: Nome
@@ -32,6 +33,10 @@ pt-BR:
         name: Cozinha
       food_type:
         name: Tipo de refeição
+      user:
+        name: Nome
+        password: Senha
+        password_confirmation: Confirmar senha
   date:
     abbr_day_names:
     - Dom

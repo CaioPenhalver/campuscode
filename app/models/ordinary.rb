@@ -1,0 +1,3 @@
+class Ordinary < User
+
+end
