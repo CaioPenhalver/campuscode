@@ -20,8 +20,13 @@
         <li class="<%= 'active' if current_page?(new_recipe_path) %>">
           <%= link_to 'Nova Receita', new_recipe_path %>
         </li>
-
       </ul>
+      <%= form_tag search_path, method: :get, class: 'navbar-form navbar-left' do %>
+        <div class="form-group">
+          <%= text_field_tag :search, params[:search], class: 'form-control' %>
+        </div>
+        <%= submit_tag "Buscar", class: 'btn btn-default' %>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

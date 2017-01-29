@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#login_admin', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logoutsafsdf'
   get 'filter', to: 'recipes#filter'
+  get 'search', to: 'recipes#search'
 end
