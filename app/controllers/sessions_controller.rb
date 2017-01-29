@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
 
-  def login_admin
+  def login
   end
 
-  def admin_authentication
+  def authentication
     admin_user = Admin.find_by(email: login_params[:email])
     if admin_user && admin_user.authenticate(login_params[:password])
       session[:user_id] = admin_user.id
@@ -14,6 +14,8 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
+
 
   def login_params
     params.permit(:email, :password)
