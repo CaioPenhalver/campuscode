@@ -3,7 +3,17 @@
     <%= form_tag(filter_path, method: :get) do %>
       <div class="form-group">
         <%= label_tag :cuisine, 'Cozinha' %>
-        <%= select_tag :cuisine, options_from_collection_for_select(cuisine_list, :id, :name, class: 'form-control') %>
+        <%= select_tag :cuisine,
+            options_from_collection_for_select(
+                cuisine_list, :id, :name, class: 'form-control'),
+            include_blank: 'Todas' %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :food_type, 'Tipo' %>
+        <%= select_tag :food_type,
+            options_from_collection_for_select(
+                food_type_list, :id, :name, class: 'form-control'),
+            include_blank: 'Todos' %>
       </div>
       <%= submit_tag 'Filtrar' %>
     <% end %>

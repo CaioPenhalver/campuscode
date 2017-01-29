@@ -25,7 +25,7 @@ class RecipesController < ApplicationController
   end
 
   def filter
-    @recipes = Recipe.where(cuisine_id: params[:cuisine]).order(:created_at).first(20)
+    @recipes = Recipe.recipes_by(type:params[:food_type] , cuisine: params[:cuisine])
     render 'welcome/index'
   end
 

@@ -5,4 +5,17 @@ class Recipe < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :food_type
   belongs_to :cuisine
+
+  def self.recipes_by(type: type, cuisine: cuisine)
+    if !(type.nil? || type.empty?) && !(cuisine.nil? || cuisine.empty?)
+      where("cuisine_id = ? AND food_type_id = ?", cuisine, type)
+                                    .order(:created_at).first(20)
+    elsif !(type.nil? || type.empty?)
+      where(food_type_id: type).order(:created_at).first(20)
+    elsif !(cuisine.nil? || cuisine.empty?)
+      where(cuisine_id: cuisine).order(:created_at).first(20)
+    else
+      order(:created_at).first(20)
+    end
+  end
 end

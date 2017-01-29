@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
-  helper_method :cuisine_list
+  helper_method :cuisine_list, :food_type_list
 
   def cuisine_list
     Cuisine.all
+  end
+
+  def food_type_list
+    FoodType.all
   end
 
 private
