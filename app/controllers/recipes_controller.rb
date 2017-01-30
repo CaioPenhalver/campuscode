@@ -47,7 +47,9 @@ class RecipesController < ApplicationController
   end
 
   def filter
-    @recipes = Recipe.recipes_by(type:params[:food_type], cuisine: params[:cuisine])
+    @recipes = Recipe.recipes_by(type: params[:food_type],
+                                  cuisine: params[:cuisine],
+                                  sort: params[:sort])
     render 'welcome/index'
   end
 

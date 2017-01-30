@@ -1,9 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
-  helper_method :cuisine_list, :food_type_list, :current_user
+  helper_method :cuisine_list, :food_type_list, :current_user, :sort_option
 
 private
+
+  def sort_option
+    [SortHelper::CREATED_AT, SortHelper::MOST_FAVORITED]
+  end
 
   def cuisine_list
     Cuisine.all

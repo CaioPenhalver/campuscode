@@ -4,16 +4,18 @@ class FavoritesController < ApplicationController
   def create
     @recipe = Recipe.find(params[:recipe_id])
     if !@current_user.nil? && !@recipe.nil?
-      if Favorite.new(user: @current_user, recipe: @recipe).save
-        flash[:success] = 'Receita adicionada aos favoritos!'
-        redirect_to @recipe
-      else
-        flash[:success] = 'Ocorre um erro!'
-        redirect_to @recipe
+      @recipe.with_lock do
+        favorite = Favorite.new(user: @current_user,
+                    recipe: @recipe)
+        if favorite.save && @recipe.update(
+                          favorite_number: @recipe.favorite_number + 1)
+          flash[:success] = 'Receita adicionada aos favoritos!'
+          redirect_to @recipe
+        else
+          flash[:success] = 'Ocorre um erro!'
+          redirect_to @recipe
+        end
       end
-    else
-      flash[:success] = 'Ocorre um erro!'
-      redirect_to root_url
     end
   end
 

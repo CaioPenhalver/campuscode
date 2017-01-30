@@ -15,16 +15,21 @@ class Recipe < ApplicationRecord
     end
   end
 
-  def self.recipes_by(type: type, cuisine: cuisine)
+  def self.recipes_by(type: type, cuisine: cuisine, sort: sort)
+    order_by = :created_at
+    if sort == SortHelper::MOST_FAVORITED
+      order_by = :favorite_number
+    end
+
     if !(type.nil? || type.empty?) && !(cuisine.nil? || cuisine.empty?)
       where("cuisine_id = ? AND food_type_id = ?", cuisine, type)
-                                    .order(:created_at).first(20)
+                                    .order(order_by).first(20)
     elsif !(type.nil? || type.empty?)
-      where(food_type_id: type).order(:created_at).first(20)
+      where(food_type_id: type).order(order_by).first(20)
     elsif !(cuisine.nil? || cuisine.empty?)
-      where(cuisine_id: cuisine).order(:created_at).first(20)
+      where(cuisine_id: cuisine).order(order_by).first(20)
     else
-      order(:created_at).first(20)
+      order(order_by).first(20)
     end
   end
 end
