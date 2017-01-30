@@ -1,4 +1,4 @@
-class OrdinariesController < ApplicationController
+class OrdinariesController < UsersController
   before_action :authenticate_user!, only:[:edit, :update, :destroy, :show]
   before_action :load_current_user, only:[:edit, :update, :destroy]
 
@@ -18,13 +18,13 @@ class OrdinariesController < ApplicationController
     end
   end
 
-  def show
-    @ordinary = find_ordinary_user
-  end
-
-  def edit
-    @ordinary = find_ordinary_user
-  end
+  # def show
+  #   @ordinary = find_ordinary_user
+  # end
+  #
+  # def edit
+  #   @ordinary = find_ordinary_user
+  # end
 
   def update
     @ordinary = find_ordinary_user
@@ -37,12 +37,12 @@ class OrdinariesController < ApplicationController
     end
   end
 
-  def destroy
-    find_ordinary_user.destroy
-    session[:user_id] = nil
-    flash[:success] = 'Perfil deletado!'
-    redirect_to root_url
-  end
+  # def destroy
+  #   find_ordinary_user.destroy
+  #   session[:user_id] = nil
+  #   flash[:success] = 'Perfil deletado!'
+  #   redirect_to root_url
+  # end
 
   private
 

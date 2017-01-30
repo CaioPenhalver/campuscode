@@ -1,27 +1,25 @@
-# class UsersController < ApplicationController
-#
-#   def show
-#     @ordinary = find_ordinary_user
-#   end
-#
-#   def edit
-#     @ordinary = find_ordinary_user
-#   end
-#
-#   def update
-#     @ordinary = find_ordinary_user
-#     if @ordinary.update(ordinary_user_params)
-#       flash[:success] = 'Atualizado com sucesso!'
-#       redirect_to @ordinary
-#     else
-#       flash.now[:success] = 'Não foi possível cadastrar!'
-#       render :edit
-#     end
-#   end
-#
-#   def destroy
-#     find_ordinary_user.destroy
-#     flash[:success] = 'Perfil deletado!'
-#     redirect_to root_url
-#   end
-# end
+class UsersController < ApplicationController
+
+
+  def show
+    @user = find_user
+  end
+
+  def edit
+    @user = find_user
+  end
+
+  def destroy
+    find_ordinary_user.destroy
+    session[:user_id] = nil
+    flash[:success] = 'Perfil deletado!'
+    redirect_to root_url
+  end
+
+
+  private
+
+  def find_user
+    User.find(params[:id])
+  end
+end
