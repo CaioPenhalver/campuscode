@@ -46,7 +46,7 @@ private
 
   def admin?
     current_user
-    @current_user.type == 'Admin'
+    !@current_user.nil? && @current_user.type == 'Admin' 
   end
 
   def loggedin?

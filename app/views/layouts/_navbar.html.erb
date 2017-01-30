@@ -20,7 +20,7 @@
         <li class="<%= 'active' if current_page?(new_recipe_path) %>">
           <%= link_to 'Nova Receita', new_recipe_path %>
         </li>
-        <% if @current_user && admin? %>
+        <% if admin? %>
           <li class="<%= 'active' if current_page?(new_food_type_path) %>">
             <%= link_to 'Novo tipo de comida', new_food_type_path %>
           </li>
@@ -45,19 +45,16 @@
                 <%= current_user.name %> <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><%= link_to "Perfil", logout_path %></li>
+                <li><a href="#">Favoritos</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li class="<%= 'active' if current_page?(logout_path) %>">
+                  <%= link_to logout_path do %>
+                    Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
+                  <% end %>
+                </li>
               </ul>
             </li>
-
-          <li class="<%= 'active' if current_page?(logout_path) %>">
-            <%= link_to logout_path do %>
-              Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
-            <% end %>
-          </li>
         <% else %>
           <li class="<%= 'active' if current_page?(login_path) %>">
             <%= link_to login_path do %>

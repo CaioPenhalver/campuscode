@@ -1,3 +1,16 @@
+.side-bar {
+  min-width: 100px;
+}
+.container-side-bar{
+  position: fixed;
+  min-width: 100px;
+}
+@media screen and (max-width: 1000px) {
+  .container-side-bar{
+    position: static;
+    min-width: 100px;
+  }
+}
 /***Recipe cards****/
 .flex-container {
   display: flex;
