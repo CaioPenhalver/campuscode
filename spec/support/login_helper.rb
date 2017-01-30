@@ -1,9 +1,11 @@
 module LoginHelper
   def login(password, email)
     visit login_path
-    fill_in 'Email', with: email
-    fill_in 'Senha', with: password
-    click_on 'Entrar'
+    within("div[class='container']") do
+      fill_in 'Email', with: email
+      fill_in 'Senha', with: password
+      click_on 'Entrar'
+    end
   end
   def admin_user_is_loggedin
     admin_user = Admin.create(name: 'caio',

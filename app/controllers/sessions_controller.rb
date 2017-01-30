@@ -1,6 +1,12 @@
 class SessionsController < ApplicationController
-
+  before_action :authenticate_user!, only: :destroy
   def login
+  end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:success] = "Tchau volte sempre!"
+    redirect_to root_url
   end
 
   def authentication
@@ -16,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
 
-
+private
   def login_params
     params.permit(:email, :password)
   end

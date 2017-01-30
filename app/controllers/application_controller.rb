@@ -1,7 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
-  helper_method :cuisine_list, :food_type_list, :current_user, :sort_option
+  helper_method :cuisine_list,
+                :food_type_list,
+                :current_user,
+                :sort_option,
+                :admin?,
+                :loggedin?
 
 private
 
@@ -37,6 +42,16 @@ private
     else
       redirect_to login_path
     end
+  end
+
+  def admin?
+    current_user
+    @current_user.type == 'Admin'
+  end
+
+  def loggedin?
+    current_user
+    !@current_user.nil?
   end
 
   def default_url_options

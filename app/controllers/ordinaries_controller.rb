@@ -39,6 +39,7 @@ class OrdinariesController < ApplicationController
 
   def destroy
     find_ordinary_user.destroy
+    session[:user_id] = nil
     flash[:success] = 'Perfil deletado!'
     redirect_to root_url
   end

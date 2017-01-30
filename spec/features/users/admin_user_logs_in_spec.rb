@@ -10,9 +10,11 @@ feature 'Admin user logs in' do
 
     visit login_path
 
-    fill_in 'Email', with: admin_user.email
-    fill_in 'Senha', with: admin_user.password
-    click_on 'Entrar'
+    within("div[class='container']") do
+      fill_in 'Email', with: admin_user.email
+      fill_in 'Senha', with: admin_user.password
+      click_on 'Entrar'
+    end
 
     expect(page).to have_content 'Bem vindo!!!'
   end
