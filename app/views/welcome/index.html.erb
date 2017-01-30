@@ -2,38 +2,16 @@
   <div class="col-md-2">
     <%= render 'layouts/aside' %>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-10">
     <div class="flex-container">
     <% @recipes.each do |recipe| %>
     <div class="flex-item">
       <h2><%= recipe.name %></h2>
       <div class="">
-        <h4>Tipo</h4>
-        <p><%= recipe.food_type.name %></p>
+        <%= image_tag recipe.image.thumb.url %>
       </div>
       <div class="">
-        <h4>Cozinha</h4>
-        <p><%= recipe.cuisine.name %></p>
-      </div>
-      <div class="">
-        <h4>Pessoas por porção</h4>
-        <p><%= recipe.people %></p>
-      </div>
-      <div class="">
-        <h4>Tempo de preparo</h4>
-        <p><%= recipe.time %></p>
-      </div>
-      <div class="">
-        <h4>Tempo de preparo</h4>
-        <p><%= find_i18n_string(Recipe, 'difficulties', recipe.difficulty) %></p>
-      </div>
-      <div class="">
-        <h4>Ingredientes</h4>
-        <p><%= recipe.ingredients %></p>
-      </div>
-      <div class="">
-        <h4>Modo de preparo</h4>
-        <p><%= recipe.procedure %></p>
+        <%= link_to "Ver receita...", recipe_path(recipe) %>
       </div>
     </div>
     <% end %>

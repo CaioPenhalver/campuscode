@@ -11,15 +11,18 @@
     min-width: 100px;
   }
 }
+
 /***Recipe cards****/
 .flex-container {
+  align-items: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: spece-around;
+  justify-content: center;
 }
 
 .flex-item {
+  align-self: auto;
   padding: 8px;
   width: 300px;
   min-height: 350px;
