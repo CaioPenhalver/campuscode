@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'User' do
   scenario 'favorites recipe successfully' do
     user_is_loggedin
+    
     recipe = create(:recipe)
 
     visit recipe_path(recipe)

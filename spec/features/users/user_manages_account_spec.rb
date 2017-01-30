@@ -22,17 +22,14 @@ feature 'Ordinary user' do
   end
 
   scenario 'edits profile' do
-    user = Ordinary.create(name: 'caiopr',
-                              email: 'caio@gmail.com',
-                              password: 'qazwsx',
-                              password_confirmation: 'qazwsx')
+    user_is_loggedin
+
     user_updates = Ordinary.new(name: 'caio',
                               email: 'caiopr@yahoo.com.br',
                               password: '123456',
                               password_confirmation: '123456')
 
-
-    visit edit_ordinary_path(user)
+    visit edit_ordinary_path(loggedin_user)
 
     fill_in 'Nome', with: user_updates.name
     fill_in 'Email', with: user_updates.email
@@ -46,12 +43,9 @@ feature 'Ordinary user' do
   end
 
   scenario 'deletes profile' do
-    user = Ordinary.create(name: 'caiopr',
-                              email: 'caio@gmail.com',
-                              password: 'qazwsx',
-                              password_confirmation: 'qazwsx')
+    user_is_loggedin
 
-    visit ordinary_path(user)
+    visit ordinary_path(loggedin_user)
 
     click_on 'Excluir perfil'
 

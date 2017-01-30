@@ -1,5 +1,6 @@
 class OrdinariesController < ApplicationController
-
+  before_action :authenticate_user!, only:[:edit, :update, :destroy]
+  before_action :load_current_user, only:[:edit, :update, :destroy]
   def new
     @ordinary = Ordinary.new
   end
@@ -52,4 +53,13 @@ class OrdinariesController < ApplicationController
   def find_ordinary_user
     Ordinary.find(params[:id])
   end
+
+  def load_current_user
+    @ordinary = find_ordinary_user
+    if !(@current_user == @ordinary)
+      flash[:danger] = "Acesso não autorizado!"
+      redirect_to root_url
+    end
+  end
+
 end

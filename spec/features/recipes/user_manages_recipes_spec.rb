@@ -71,7 +71,7 @@ feature 'User' do
     expect(page).to have_content recipe.ingredients
     expect(page).to have_content recipe.procedure
     expect(page).to have_xpath("//img[@src=\"#{recipe_db.image.thumb.url}\"]")
-    #expect(page).to have_css("img[src='/uploads/recipe/image/1/thumb_img_test.jpg']")
+    #expect(page).to have_css("img[src=\"#{recipe_db.image.thumb.url}\"]")
   end
 
   scenario 'updates recipe unsuccessfully' do

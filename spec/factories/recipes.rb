@@ -8,5 +8,6 @@ FactoryGirl.define do
     difficulty 'easy'
     ingredients 'Ovo, leite, povilho'
     procedure 'Mecher tudo'
+    user
   end
 end
