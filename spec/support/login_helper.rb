@@ -13,7 +13,10 @@ module LoginHelper
     login(admin_user.password, admin_user.email)
   end
   def user_is_loggedin
-    user = create(:user)
-    login(user.password, user.email)
+    @user = create(:user)
+    login(@user.password, @user.email)
+  end
+  def loggedin_user
+    @user
   end
 end

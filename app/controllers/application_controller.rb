@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
-  helper_method :cuisine_list, :food_type_list
+  helper_method :cuisine_list, :food_type_list, :current_user
+
+private
 
   def cuisine_list
     Cuisine.all
@@ -11,9 +13,7 @@ class ApplicationController < ActionController::Base
     FoodType.all
   end
 
-private
-
-  def current_user(user)
+  def current_user(user = User)
     if session[:user_id]
         @current_user ||= user.find(session[:user_id])
     end

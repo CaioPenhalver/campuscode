@@ -34,6 +34,15 @@
         <p><%= @recipe.procedure %></p>
       </div>
       <%= link_to 'Excluir receita', recipe_path(@recipe), method: :delete, style: 'float:right;'%>
+      <br>
+      <p id="favorites" >
+        <%= @recipe.favorites.size %>
+        <% if @recipe.favorited?(current_user) %>
+          <%= link_to 'Desfavoritar', recipe_favorite_path(@recipe), method: :delete, style: 'float:right;'%>
+        <% else %>
+          <%= link_to 'Favoritar', recipe_favorites_path(@recipe), method: :post, style: 'float:right;'%>
+        <% end %>
+      </p>
     </div>
   </div>
 </div>
