@@ -1,6 +1,7 @@
 class OrdinariesController < ApplicationController
-  before_action :authenticate_user!, only:[:edit, :update, :destroy]
+  before_action :authenticate_user!, only:[:edit, :update, :destroy, :show]
   before_action :load_current_user, only:[:edit, :update, :destroy]
+
   def new
     @ordinary = Ordinary.new
   end
@@ -9,6 +10,7 @@ class OrdinariesController < ApplicationController
     @ordinary = Ordinary.new(ordinary_user_params)
     if @ordinary.save
       flash[:success] = 'Cadastrado com sucesso!'
+      session[:user_id] = @ordinary.id
       redirect_to @ordinary
     else
       flash.now[:success] = 'Não foi possível cadastrar!'
