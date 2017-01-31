@@ -1,12 +1,14 @@
 <div class="row">
-  <div class="col-xs-12 side-bar">
+  <div class="col-md-2 col-xs-12 side-bar">
     <div class="container-side-bar">
       <div class="side-bar-row">
         <h3><%= @user.name %></h3>
         <p><%= @user.email %></p>
       </div>
-      <%= link_to 'Editar', edit_user_path(@user),
-        class: 'btn btn-default side-bar-btn' %>
+      <div class="side-bar-row">
+        <%= link_to 'Editar', edit_user_path(@user),
+          class: 'btn btn-default side-bar-btn' %>
+      </div>
         <div class="side-bar-row">
           <%= link_to 'Excluir perfil', ordinary_path(@user), method: :delete,
               data: { confirm: 'Are you sure?' } %>

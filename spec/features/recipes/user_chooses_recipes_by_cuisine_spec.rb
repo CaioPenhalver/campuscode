@@ -7,10 +7,15 @@ feature 'User sees recipes by cuisine' do
     cuisine_1 = create(:cuisine, name: "Italiana")
     cuisine_2 = create(:cuisine, name: "Espanhola")
 
-    7.times { |i| create(:recipe, cuisine: cuisine_1) }
-    10.times { |i| create(:recipe, cuisine: cuisine_2) }
+    cuisine_1_list = Array.new
+    cuisine_2_list = Array.new
 
-
+    7.times do |i|
+      cuisine_1_list << create(:recipe, cuisine: cuisine_1)
+    end
+    10.times do |i|
+      cuisine_2_list << create(:recipe, cuisine: cuisine_2)
+    end
 
     visit root_path
 
@@ -18,8 +23,12 @@ feature 'User sees recipes by cuisine' do
 
     click_on 'Filtrar'
     within("div[class='flex-container']") do
-      expect(page).not_to have_content cuisine_1.name
-      expect(page).to have_content cuisine_2.name
+      cuisine_1_list.each do |recipe|
+        expect(page).not_to have_content recipe.name
+      end
+      cuisine_2_list.each do |recipe|
+        expect(page).to have_content recipe.name
+      end
     end
   end
 end

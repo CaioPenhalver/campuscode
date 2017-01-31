@@ -5,6 +5,12 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :favorites
 
+  def favorite_recipes
+    favorites.each do |f|
+      f.recipe
+    end
+  end
+
   def ==(other_user)
     other_user.name == name &&
     other_user.email == email &&

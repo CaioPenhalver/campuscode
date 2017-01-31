@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :recipe do
-    name "Pão de queijo"
+    name { Faker::Lorem.characters(20) }
     food_type
     cuisine
     people 3

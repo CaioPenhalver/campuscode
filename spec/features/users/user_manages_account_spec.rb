@@ -29,7 +29,7 @@ feature 'Ordinary user' do
                               password: '123456',
                               password_confirmation: '123456')
 
-    visit edit_ordinary_path(loggedin_user)
+    visit edit_user_path(loggedin_user)
 
     fill_in 'Nome', with: user_updates.name
     fill_in 'Email', with: user_updates.email
@@ -45,7 +45,7 @@ feature 'Ordinary user' do
   scenario 'deletes profile' do
     user_is_loggedin
 
-    visit ordinary_path(loggedin_user)
+    visit user_path(loggedin_user)
 
     click_on 'Excluir perfil'
 

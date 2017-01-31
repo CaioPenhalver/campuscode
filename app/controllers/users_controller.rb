@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :load_current_user, only:[:edit, :update, :destroy]
 
   def destroy
-    find_ordinary_user.destroy
+    find_user.destroy
     session[:user_id] = nil
     flash[:success] = 'Perfil deletado!'
     redirect_to root_url
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def load_current_user
-    @user = find_admin_user
+    @user = find_user
     if !(@current_user == @user)
       flash[:danger] = "Acesso não autorizado!"
       redirect_to root_url

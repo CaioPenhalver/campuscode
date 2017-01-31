@@ -1,4 +1,28 @@
 <div class="row">
   <%= render 'sidebar' %>
-  <%= render 'layouts/recipe', recipes: @user.recipes %>
+  <div class="col-md-10 col-md-offset-2">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation">
+        <a href="#my-recipes" aria-controls="profile" role="tab" data-toggle="tab">
+          Minhas Receitas
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#my-favorites" aria-controls="messages" role="tab" data-toggle="tab">
+          Favoritos
+        </a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="my-recipes">
+        <%= render 'layouts/recipe', recipes: @user.recipes %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="my-favorites">
+        <%= render 'layouts/recipe', recipes: @user.favorite_recipes %>
+      </div>
+    </div>
+  </div>
 </div>
