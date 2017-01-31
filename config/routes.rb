@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :cuisines, only: [:show, :new, :create, :edit, :update, :destroy, :index]
   resources :food_types, only: [:show, :new, :create, :edit, :update, :destroy, :index]
   resources :ordinaries, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :users, only: [:show, :edit, :update, :destroy]
   post 'login', to: 'sessions#authentication', as: 'authentication'
   get 'login', to: 'sessions#login', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
