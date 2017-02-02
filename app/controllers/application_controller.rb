@@ -46,7 +46,7 @@ private
 
   def admin?
     current_user
-    !@current_user.nil? && @current_user.type == 'Admin' 
+    !@current_user.nil? && @current_user.type == 'Admin'
   end
 
   def loggedin?
@@ -60,6 +60,5 @@ private
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
-    puts I18n.locale
   end
 end

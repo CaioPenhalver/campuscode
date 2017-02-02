@@ -4,7 +4,7 @@ feature 'User' do
   scenario 'posts recipe successfully' do
     user_is_loggedin
 
-    recipe = build(:recipe)
+    recipe = build(:recipe, user: loggedin_user)
     difficulty = 'Facíl'
 
     visit new_recipe_path
@@ -102,10 +102,9 @@ feature 'User' do
   end
 
   scenario 'deletes recipe successfully' do
-    user = create(:user)
-    recipe = create(:recipe, user: user)
+    user_is_loggedin
 
-    login(user.password, user.email)
+    recipe = create(:recipe, user: loggedin_user)
 
     visit recipe_path(recipe)
 
@@ -116,17 +115,13 @@ feature 'User' do
   end
 
   scenario 'deletes recipe unsuccessfully' do
-    user = create(:user)
+    user_is_loggedin
     other_user = create(:user, email: 'anotheruser@gmail.com')
-    recipe = create(:recipe, user: user)
+    recipe = create(:recipe, user: other_user)
 
-    login(other_user.password, other_user.email)
 
     visit recipe_path(recipe)
 
-    click_on 'Excluir receita'
-
-    expect(current_path).to eq root_path
-    expect(page).to have_content "Acesso não autorizado!"
+    expect(page).not_to have_content 'Excluir receita'
   end
 end
