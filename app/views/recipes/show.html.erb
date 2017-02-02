@@ -1,46 +1,74 @@
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
-    <div class="row">
-      <h2><%= @recipe.name %></h2>
-      <div class="">
+    <div class="row" >
+      <h2 class="my-title"><%= @recipe.name %></h2>
+      <div class="col-md-6 col-xs-12">
         <%= image_tag @recipe.image.thumb.url %>
       </div>
-      <div class="">
-        <h4>Tipo</h4>
-        <p><%= @recipe.food_type.name %></p>
+      <div class="col-md-6 col-xs-12">
+        <div class="">
+          <p><span class="recie-label">
+            Tipo
+          </span> <%= @recipe.food_type.name %>
+        </p>
+        </div>
+        <div class="">
+          <p><span class="recie-label">
+            Cozinha
+          </span> <%= @recipe.cuisine.name %>
+        </p>
+        </div>
+        <div class="">
+            <p>
+            <span class="recie-label">
+              Pessoas por porção
+            </span> <%= @recipe.people %>
+          </p>
+        </div>
+        <div class="">
+          <p>
+            <span class="recie-label">
+              Tempo de preparo</span> <%= @recipe.time %>
+          </p>
+        </div>
+        <div class="">
+          <p>
+            <span class="recie-label">
+              Nível
+            </span>
+              <%= find_i18n_string(Recipe, 'difficulties', @recipe.difficulty) %>
+          </p>
+        </div>
       </div>
-      <div class="">
-        <h4>Cozinha</h4>
-        <p><%= @recipe.cuisine.name %></p>
-      </div>
-      <div class="">
-        <h4>Pessoas por porção</h4>
-        <p><%= @recipe.people %></p>
-      </div>
-      <div class="">
-        <h4>Tempo de preparo</h4>
-        <p><%= @recipe.time %></p>
-      </div>
-      <div class="">
-        <h4>Tempo de preparo</h4>
-        <p><%= find_i18n_string(Recipe, 'difficulties', @recipe.difficulty) %></p>
-      </div>
-      <div class="">
-        <h4>Ingredientes</h4>
+    </div>
+    <div class="row">
+      <div class="recipe-text-container">
+        <h3 class="my-title">Ingredientes</h3>
         <p><%= @recipe.ingredients %></p>
       </div>
-      <div class="">
-        <h4>Modo de preparo</h4>
+      <div class="recipe-text-container">
+        <h3 class="my-title">Modo de preparo</h3>
         <p><%= @recipe.procedure %></p>
       </div>
-      <%= link_to 'Excluir receita', recipe_path(@recipe), method: :delete, style: 'float:right;'%>
+      <% if @recipe.user == @current_user %>
+      <%= link_to 'Excluir receita', recipe_path(@recipe), method: :delete,
+      style: 'float:right;'%>
+      <% end %>
       <br>
       <p id="favorites" >
-        <%= @recipe.favorites.size %>
-        <% if @recipe.favorited?(current_user) %>
-          <%= link_to 'Desfavoritar', recipe_favorite_path(@recipe), method: :delete, style: 'float:right;'%>
+        <% if @recipe.users_like.include?(current_user) %>
+          <%= link_to  recipe_favorite_path(@recipe),
+          method: :delete do %>
+            <i class="fa fa-star fa-2x button-star" aria-hidden="true">
+              <%= @recipe.users_like.size %>
+            </i>
+          <% end %>
         <% else %>
-          <%= link_to 'Favoritar', recipe_favorites_path(@recipe), method: :post, style: 'float:right;'%>
+          <%= link_to recipe_favorites_path(@recipe), method: :post do %>
+            <i class="fa fa-star-o fa-2x button-star" aria-hidden="true">
+              <%= @recipe.users_like.size %>
+            </i>
+          <% end %>
         <% end %>
       </p>
     </div>

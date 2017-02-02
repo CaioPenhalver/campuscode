@@ -48,3 +48,24 @@
 .row-button {
   width: 100%;
 }
+
+/**recipe show**/
+.my-title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.recie-label {
+  font-size: 1.2 em;
+  font-weight: bold;
+}
+
+.recipe-text-container {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  word-wrap: break-word;
+}
+
+.button-star {
+  color: rgb(204, 204, 0);
+}

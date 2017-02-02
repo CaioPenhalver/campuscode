@@ -7,13 +7,7 @@ class Recipe < ApplicationRecord
   belongs_to :cuisine
   belongs_to :user
   has_many :favorites
-
-  def favorited?(user)
-    return false if favorites.empty?
-    favorites.each do |f|
-      return f.user.id == user.id
-    end
-  end
+  has_many :users_like, through: :favorites, source: :user
 
   def self.recipes_by(type: type, cuisine: cuisine, sort: sort)
     order_by = :created_at

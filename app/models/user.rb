@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   has_many :recipes
   has_many :favorites
+  has_many :favorite_recipes, through: :favorites,
+                              source: :recipe
 
   def favorite_recipes
     favorites.each do |f|
@@ -12,6 +14,7 @@ class User < ApplicationRecord
   end
 
   def ==(other_user)
+    !other_user.nil? &&
     other_user.name == name &&
     other_user.email == email &&
     other_user.id == id &&
