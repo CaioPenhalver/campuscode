@@ -4,8 +4,16 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   has_many :recipes
   has_many :favorites
-  has_many :favorite_recipes, through: :favorites,
-                              source: :recipe
+  has_many :favorited_recipes, through: :favorites,
+            source: :recipe, class_name: 'Recipe'
+=begin
+has_many :favorite_recipes, through: :favorites,
+          source: :recipe, class_name: 'Recipe'
+#It was retrieving Favorites instead of Recipes,
+  however, when the field ":favorite_recipes"
+  was changed to ":favorited_recipes" it started to
+  retrieve Recipes
+=end
 
   def favorite_recipes
     favorites.each do |f|

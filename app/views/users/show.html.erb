@@ -21,7 +21,7 @@
         <%= render 'layouts/recipe', recipes: @user.recipes %>
       </div>
       <div role="tabpanel" class="tab-pane" id="my-favorites">
-        <%= render 'layouts/recipe', recipes: @user.favorite_recipes %>
+        <%= render 'layouts/recipe', recipes: @user.favorited_recipes %>
       </div>
     </div>
   </div>

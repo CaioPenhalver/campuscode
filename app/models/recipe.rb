@@ -7,7 +7,7 @@ class Recipe < ApplicationRecord
   belongs_to :cuisine
   belongs_to :user
   has_many :favorites
-  has_many :users_like, through: :favorites, source: :user
+  has_many :users_like, through: :favorites, source: :user, class_name: 'User'
 
   def self.recipes_by(type: type, cuisine: cuisine, sort: sort)
     order_by = :created_at
