@@ -17,7 +17,7 @@ feature 'User' do
 
   scenario 'disfavorites recipe successfully' do
     user_is_loggedin
-    recipe = create(:recipe)
+    recipe = create(:recipe, favorite_number: 1)
     favorite = create(:favorite, user: loggedin_user, recipe: recipe)
 
     visit recipe_path(recipe)

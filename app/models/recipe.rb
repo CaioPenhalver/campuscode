@@ -13,7 +13,6 @@ class Recipe < ApplicationRecord
     puts sort
     order_by = :created_at
     if sort.to_i == SortHelper::MOST_FAVORITED[1]
-      puts '<<<<<<<<<<<<<<<<<<_____________>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
       order_by = :favorite_number
     end
 
