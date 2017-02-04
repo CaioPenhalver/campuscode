@@ -30,7 +30,7 @@ feature 'User' do
     expect(page).to have_content difficulty
     expect(page).to have_content recipe.ingredients
     expect(page).to have_content recipe.procedure
-    expect(page).to have_xpath("//img[@src=\"#{recipe_db.image.thumb.url}\"]")
+    expect(page).to have_xpath("//img[@src=\"#{recipe_db.image.medium.url}\"]")
     #expect(page).to have_css("img[src='/uploads/recipe/image/1/thumb_img_test.jpg']")
   end
 
@@ -68,9 +68,8 @@ feature 'User' do
     expect(page).to have_content recipe.people
     expect(page).to have_content recipe.time
     expect(page).to have_content difficulty
-    expect(page).to have_content recipe.ingredients
     expect(page).to have_content recipe.procedure
-    expect(page).to have_xpath("//img[@src=\"#{recipe_db.image.thumb.url}\"]")
+    expect(page).to have_xpath("//img[@src=\"#{recipe_db.image.medium.url}\"]")
     #expect(page).to have_css("img[src=\"#{recipe_db.image.thumb.url}\"]")
   end
 

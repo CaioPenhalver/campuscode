@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       flash[:success] = 'Atualizado com sucesso!'
       redirect_to @user
     else
-      flash.now[:success] = 'Não foi possível cadastrar!'
+      flash.now[:danger] = 'Não foi possível cadastrar!'
       render :edit
     end
   end

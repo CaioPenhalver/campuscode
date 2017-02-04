@@ -3,7 +3,7 @@
     <div class="row" >
       <h2 class="my-title"><%= @recipe.name %></h2>
       <div class="col-md-6 col-xs-12">
-        <%= image_tag @recipe.image.thumb.url %>
+        <%= image_tag @recipe.image.medium.url %>
       </div>
       <div class="col-md-6 col-xs-12">
         <div class="">
@@ -60,14 +60,14 @@
           <%= link_to  recipe_favorite_path(@recipe),
           method: :delete, id: :'disfavorite-button' do %>
             <i class="fa fa-star fa-2x button-star" aria-hidden="true">
-              <%= @recipe.users_like.size %>
+              <%= @recipe.favorite_number %>
             </i>
           <% end %>
         <% else %>
           <%= link_to recipe_favorites_path(@recipe), method: :post,
               id: :'favorite-button' do %>
             <i class="fa fa-star-o fa-2x button-star" aria-hidden="true">
-              <%= @recipe.users_like.size %>
+              <%= @recipe.favorite_number %>
             </i>
           <% end %>
         <% end %>

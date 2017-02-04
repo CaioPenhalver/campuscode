@@ -19,7 +19,7 @@ class OrdinariesController < UsersController
       session[:user_id] = @ordinary.id
       redirect_to @ordinary
     else
-      flash.now[:success] = 'Não foi possível cadastrar!'
+      flash.now[:danger] = 'Não foi possível cadastrar!'
       render :new
     end
   end

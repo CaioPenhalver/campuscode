@@ -18,11 +18,9 @@ class RecipesController < ApplicationController
     if @recipe.save
       flash[:success] = "Receita #{@recipe.name} foi postada!"
       redirect_to @recipe
-    elsif @recipe.invalid?
-      flash.now[:danger] = "Ocorreu um erro!"
-      render :new
     else
       flash.now[:danger] = "Ocorreu um erro!"
+      load_cuisine_and_food_type
       render :new
     end
   end
