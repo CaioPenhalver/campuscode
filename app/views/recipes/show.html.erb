@@ -44,11 +44,11 @@
     <div class="row">
       <div class="recipe-text-container">
         <h3 class="my-title">Ingredientes</h3>
-        <p><%= @recipe.ingredients %></p>
+        <p><%= print_list(@recipe.ingredients, list_type = :unordered) %></p>
       </div>
       <div class="recipe-text-container">
         <h3 class="my-title">Modo de preparo</h3>
-        <p><%= @recipe.procedure %></p>
+        <p><%= print_list(@recipe.procedure, list_type = :ordered) %></p>
       </div>
       <% if @recipe.user == current_user %>
       <%= link_to 'Excluir receita', recipe_path(@recipe), method: :delete,
