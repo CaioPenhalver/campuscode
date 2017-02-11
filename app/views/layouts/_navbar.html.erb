@@ -45,7 +45,6 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Perfil", user_path(current_user) %></li>
-                <li><a href="#">Favoritos</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="<%= 'active' if current_page?(logout_path) %>">
                   <%= link_to logout_path do %>

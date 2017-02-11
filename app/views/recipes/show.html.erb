@@ -50,11 +50,13 @@
         <h3 class="my-title">Modo de preparo</h3>
         <p><%= print_list(@recipe.procedure, list_type = :ordered) %></p>
       </div>
-      <% if @recipe.user == current_user %>
-      <%= link_to 'Excluir receita', recipe_path(@recipe), method: :delete,
-      style: 'float:right;'%>
-      <% end %>
-      <br>
+      <div style='float:right;'>
+        <% if @recipe.user == current_user %>
+        <%= link_to 'Excluir receita', recipe_path(@recipe), method: :delete %>
+        </br>
+        <%= link_to 'Editar receita', edit_recipe_path(@recipe), method: :get %>
+        <% end %>
+    </div>
       <p id="favorites" >
         <% if @recipe.users_like.include?(current_user) %>
           <%= link_to  recipe_favorite_path(@recipe),
