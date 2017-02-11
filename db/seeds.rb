@@ -24,7 +24,7 @@ sobremesa = FoodType.create(name: 'Sobremesa')
 jantar = FoodType.create(name: 'Jantar')
 
 #recipes
-recipe = Recipe.new(name: 'Bruschetta de Gorgonzola',
+Recipe.create(name: 'Bruschetta de Gorgonzola',
               people: 5,
               time: 35,
               difficulty: 'easy',
@@ -48,7 +48,69 @@ recipe = Recipe.new(name: 'Bruschetta de Gorgonzola',
                             -. Leve novamente ao forno até o queijo derreter.
                             -. Finalize com as uvas passas por cima.
                             -. Sirva em seguida.')
- # bytes_array = []
- # bytes_array << open("http://cybercook.uol.com.br/imagens/receitas/217/bruschetta-de-gorgonzola.jpg?w=500&h=350&fit=crop&fmt=pjpg").read
- # recipe.image = bytes_array.join
-puts recipe.save
+
+Recipe.create(name: 'Churros',
+              people: 4,
+              time: 20,
+              difficulty: 'easy',
+              cuisine: espanhola,
+              food_type: sobremesa,
+              user: carlos,
+              ingredients: '-.1 e 1/2 xícara (chá) de leite
+                            -.1/2 xícara (chá) de água
+                            -.2 colheres (sopa) de margarina ou manteiga
+                            -.2 xícaras (chá) de farinha de trigo
+                            -.sal a gosto
+                            -.açúcar a gosto
+                            -.canela a gosto',
+              procedure: '-.Em uma panela, adicione o leite, a água, a manteiga e o sal
+                          -.Quando o leite ferver, adicione a farinha de trigo e mexa rápido até a massa soltar do fundo da panela
+                          -.Coloque a massa em um saco de confeiteiro com o bico pitanga, depois faça tirinhas com a massa e frite
+                          -.Misture a canela e o açúcar, depois passe nos churros fritos')
+
+Recipe.create(name: 'Panqueca rápida',
+              people: 2,
+              time: 30,
+              difficulty: 'easy',
+              cuisine: espanhola,
+              food_type: jantar,
+              user: carlos,
+              ingredients: '-.1 xícara (chá) de farinha de trigo
+                            -.1 xícara (chá) de leite
+                            -.1 ovo
+                            -.1 colher (chá) de sal
+                            -.1 colher (café) de fermento em pó
+                            -.1 colher (sopa) de óleo de canola
+                            ',
+              procedure: '-.Coloque no liquidificador o leite, o ovo, o sal, o fermento, o óleo e por último a farinha de trigo. Bata tudo muito bem até formar um mistura homogênea.
+                          -.Leve ao fogo um frigideira pequena, antiaderente, untada com óleo. Com uma concha vá colocando a massa da panqueca. Cuide para que não fique grossa. A panqueca deve ficar fininha. Deixe dourar de um lado e depois vire para dourar do outro.
+                          -.Retire do fogo e vá recheando a seu gosto. Pode ser um guisado de carne com ovos, de frango, de vegetais, de ricota, de palmito ou outro a seu gosto. Pode ser recheada também com goiabada, marmelada, geleia de morango ou outra a seu gosto.
+                          -.Antes de servir leve ao micro-ondas ou ao forno convencional por alguns minutos só para aquecer.
+                          -.As panquecas salgadas podem ser em regadas com molho de tomate ou mesmo molho branco, fica uma delicia.
+                          -.As panquecas doce podem ser regadas com caldas a seu gosto.')
+
+Recipe.create(name: 'Vieiras, maçã verde, shoyu e saquê',
+              people: 2,
+              time: 30,
+              difficulty: 'hard',
+              cuisine: japonesa,
+              food_type: jantar,
+              user: jhony,
+              ingredients: '-.4 vieiras
+                            -.1 maçã verde
+                            -.5g de raspas de yuzu
+                            -.20g de katsuobushi
+                            -.20g de kombu
+                            -.5ml de shoyu
+                            -.50g de sagu
+                            -.40g de missô branco
+                            -.5 flores de nira
+                            -.100 ml de saquê mirim
+                            -.200ml de água
+                            -.10g de manteiga sem sal
+                            ',
+              procedure: '-.Prepare o molho dashi e tempere com o shoyu.
+                          -.Tire lâminas da vieira e da maçã verde.
+                          -.Dilua o missô com água e cozinhe o sagu.
+                          -.Salteie as flores de nirá com manteiga.
+                          -.Monte e sirva bem gelado.')
